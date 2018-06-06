@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
+
+namespace Grafik
+{
+    [Serializable]
+    public class Grafik
+    {
+        
+        public int instruktorID
+        {
+            get;
+            set;
+        }
+        
+        public int zajeciaID
+        {
+            get;
+            set;
+        }
+        
+        public DateTime dataZajec
+        {
+            get;
+            set;
+        }
+        public int iloscZarezerwowanych
+        {
+            get;
+            set;
+        }
+        [XmlArrayItem("idUczestnika")]
+        public List<int> uczestnicyID { get;  set; }
+
+        public Grafik() {
+            this.dataZajec = DateTime.Today;
+            this.instruktorID = -1;
+            this.zajeciaID = -1;
+            this.iloscZarezerwowanych = 0;
+            this.uczestnicyID = new List<int>();
+        }
+        public Grafik(int pracownikID, int zajecia, DateTime dataZajec) {
+            this.instruktorID = pracownikID;
+            this.dataZajec = dataZajec;
+            this.zajeciaID = zajecia;
+            this.iloscZarezerwowanych = 0;
+            this.uczestnicyID = new List<int>();
+        }
+        public bool DodajUczesnika(Uczestnik uczestnik)
+        {
+            if (uczestnik.iloscZajec > 0)
+            {
+                this.iloscZarezerwowanych += 1;
+                this.uczestnicyID.Add(uczestnik.personID);
+                return true;
+            } else
+            {
+                return false;
+            }
+           
+        }
+        
+       
+    }
+}

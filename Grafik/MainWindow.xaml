@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" >
+            <Button Height="40" Click="ZobaczPlan">Zobacz plan</Button>
+            <Button Height="40" Click="ZobaczZajecia">Zobacz zajecia</Button>
+            <Button Height="40" Click="ZobaczPracownikow">Zobacz pracownikow</Button>
+            <Button Height="40" Click="DodajPracownika">Dodaj pracownika</Button>
+            <Button Height="40" Click="UstalGrafik">Ustal grafik</Button>
+            <Button Height="40" Click="DodajZajecia">Dodaj zajecia</Button>
+        </StackPanel>
+        <Frame Grid.Column="1" Name="framePlace" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

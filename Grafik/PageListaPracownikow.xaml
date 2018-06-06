@@ -1,0 +1,21 @@
+﻿<Page x:Class="Grafik.PageListaPracownikow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Grafik"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="PageListaPracownikow">
+    
+    <Grid>
+        <DataGrid ItemsSource="{Binding ListaPracownikow}" x:Name="dataGridPracownicy" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.083,0.385">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Imię" Binding="{Binding Path=imie}"/>
+                <DataGridTextColumn  Header="Nazwisko" Binding="{Binding Path=nazwisko}"/>
+                <DataGridTextColumn Header="Płaca" Binding="{Binding Path=placa}"/>
+                <DataGridTextColumn Header="Data zatrudnienia" Binding="{Binding Path=dataZatrudnienia}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

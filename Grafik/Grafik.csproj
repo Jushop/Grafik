@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Czlowiek.cs" />
+    <Compile Include="Grafik.cs" />
+    <Compile Include="Pracownik.cs" />
+    <Compile Include="Uczestnik.cs" />
+    <Compile Include="ListaDanych.cs" />
+    <Compile Include="Zajecia.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,12 +69,62 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CzytajXML.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PageListaPracownikow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageListaUczestnikow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageListaZajec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageNowyPracownik.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageNowyGrafik.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageGrafik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageGrafikViewModel.cs" />
+    <Compile Include="PageListaPracownikowViewModel.cs" />
+    <Compile Include="PageListaUczestnikowViewModel.cs" />
+    <Compile Include="PageListaZajecViewModel.cs" />
+    <Compile Include="PageNowyGrafikViewModel.cs" />
+    <Compile Include="PageNowyPracownikViewModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="PageListaPracownikow.xaml.cs">
+      <DependentUpon>PageListaPracownikow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageListaUczestnikow.xaml.cs">
+      <DependentUpon>PageListaUczestnikow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageListaZajec.xaml.cs">
+      <DependentUpon>PageListaZajec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageNowyPracownik.xaml.cs">
+      <DependentUpon>PageNowyPracownik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageNowyGrafik.xaml.cs">
+      <DependentUpon>PageNowyGrafik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageGrafik.xaml.cs">
+      <DependentUpon>PageGrafik.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
