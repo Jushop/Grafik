@@ -23,6 +23,7 @@ namespace Grafik
         public PageListaZajec()
         {
             InitializeComponent();
+            PageListaZajecViewModel vm = new PageListaZajecViewModel();
         }
     }
 }

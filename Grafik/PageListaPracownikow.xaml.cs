@@ -24,6 +24,8 @@ namespace Grafik
         {
             InitializeComponent();
             PageListaPracownikowViewModel vm = new PageListaPracownikowViewModel();
+           // dataGridPracownicy.ItemsSource = vm.ListaPracownikow;
+      
         }
     }
 }

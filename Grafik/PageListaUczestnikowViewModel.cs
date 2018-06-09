@@ -6,12 +6,21 @@ using System.Threading.Tasks;
 
 namespace Grafik
 {
-    public class PageListaUzytkownikowViewModel
+    public class PageListaUczestnikowViewModel
     {
-        public List<string> lista { get; set; }
+        public ListaUzytkownikow ListaUzytkownikow
+        {
+            get { return CzytajXML.ReadLU("listau.xml"); }
+            set { }
+        }
+        public PageListaUczestnikowViewModel()
+        {
+            PobierzListe();
+        }
 
-        public PageListaUzytkownikowViewModel() {
-
+        public void PobierzListe()
+        {
+            ListaUzytkownikow = CzytajXML.ReadLU("listau.xml");
         }
     }
 }

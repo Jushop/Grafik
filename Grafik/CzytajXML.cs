@@ -60,13 +60,14 @@ namespace Grafik
             XmlSerializer serializer4 = new XmlSerializer(typeof(ListaZajec));
             TextWriter writer4 = new StreamWriter(filename4);
             // Grafik po = new Grafik(pracownik1, zajecia1, DateTime.Today);
-
+            
             ListaZajec listaZ = new ListaZajec();
             listaZ.Add(zajecia1);
             listaZ.Add(zajecia2);
 
             serializer4.Serialize(writer4, listaZ);
             // Sets ShipTo and BillTo to the same addressee.  
+            writer4.Close();
 
             XmlSerializer serializer3 = new XmlSerializer(typeof(ListaGrafik));
             TextWriter writer3 = new StreamWriter(filename3);
@@ -135,7 +136,7 @@ namespace Grafik
 
         }
 
-        public static ListaPracownikow ReadLP(string filename1)
+        public static ListaPracownikow ReadLP(String filename)
         {
 
             //Lista pracownikow
@@ -143,13 +144,48 @@ namespace Grafik
             serializer1.UnknownNode += new XmlNodeEventHandler(serializer_UnknownNode);
             serializer1.UnknownAttribute += new XmlAttributeEventHandler(serializer_UnknownAttribute);
 
-            FileStream fslp = new FileStream(filename1, FileMode.Open);
+            FileStream fslp = new FileStream(filename, FileMode.Open);
             // Declares an object variable of the type to be deserialized.  
             ListaPracownikow aktualnalp;
 
             aktualnalp = (ListaPracownikow)serializer1.Deserialize(fslp);
             fslp.Close();
             return aktualnalp;
+
+        }
+
+        public static ListaUzytkownikow ReadLU(String filename)
+        {
+
+            //Lista pracownikow
+            XmlSerializer serializer1 = new XmlSerializer(typeof(ListaUzytkownikow));
+            serializer1.UnknownNode += new XmlNodeEventHandler(serializer_UnknownNode);
+            serializer1.UnknownAttribute += new XmlAttributeEventHandler(serializer_UnknownAttribute);
+
+            FileStream fslp = new FileStream(filename, FileMode.Open);
+            // Declares an object variable of the type to be deserialized.  
+            ListaUzytkownikow aktualnalu;
+
+            aktualnalu = (ListaUzytkownikow)serializer1.Deserialize(fslp);
+            fslp.Close();
+            return aktualnalu;
+
+        }
+        public static ListaZajec ReadLZ(String filename)
+        {
+
+            //Lista pracownikow
+            XmlSerializer serializer1 = new XmlSerializer(typeof(ListaZajec));
+            serializer1.UnknownNode += new XmlNodeEventHandler(serializer_UnknownNode);
+            serializer1.UnknownAttribute += new XmlAttributeEventHandler(serializer_UnknownAttribute);
+
+            FileStream fslp = new FileStream(filename, FileMode.Open);
+            // Declares an object variable of the type to be deserialized.  
+            ListaZajec aktualnalz;
+
+            aktualnalz = (ListaZajec)serializer1.Deserialize(fslp);
+            fslp.Close();
+            return aktualnalz;
 
         }
         protected static void serializer_UnknownNode

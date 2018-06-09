@@ -23,7 +23,9 @@ namespace Grafik
         public MainWindow()
         {
             InitializeComponent();
-            
+            CzytajXML t = new CzytajXML();
+            t.CreatePO("listap.xml", "listau.xml", "grafik.xml", "listazajec.xml");
+
         }
         private void ZobaczPlan(object sender, RoutedEventArgs e)
         {
@@ -57,8 +59,14 @@ namespace Grafik
 
         private void ZobaczPracownikow(object sender, RoutedEventArgs e)
         {
-            PageListaPracownikowViewModel pageListaPracownikow = new PageListaPracownikowViewModel();
+            PageListaPracownikow pageListaPracownikow = new PageListaPracownikow();
             framePlace.Navigate(pageListaPracownikow);
+        }
+
+        private void ZobaczUzytkownikow(object sender, RoutedEventArgs e)
+        {
+            PageListaUczestnikow pageListaUzytkownikow = new PageListaUczestnikow();
+            framePlace.Navigate(pageListaUzytkownikow);
         }
     }
 }

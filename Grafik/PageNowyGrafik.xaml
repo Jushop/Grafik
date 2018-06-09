@@ -9,6 +9,10 @@
       Title="PageNowyGrafik">
 
     <Grid>
-        
+        <ListBox x:Name="listBox"   HorizontalAlignment="Left" Height="100" Margin="25,30,0,0" VerticalAlignment="Top" Width="100"/>
+
+        <ListBox x:Name="listBox1"  HorizontalAlignment="Left" Height="100" Margin="25,150,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="button" Click="button_Click" Content="Button" HorizontalAlignment="Left" Margin="170,230,0,0" VerticalAlignment="Top" Width="85" Height="30"/>
+
     </Grid>
 </Page>

@@ -22,7 +22,16 @@ namespace Grafik
     {
         public PageNowyGrafik()
         {
+           ListaZajec ListaZajec = CzytajXML.ReadLZ("listazajec.xml");
+            ListaPracownikow listaPracownikow = CzytajXML.ReadLP("listap.xml");
             InitializeComponent();
+            listBox.ItemsSource = ListaZajec;
+            listBox1.ItemsSource = listaPracownikow;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

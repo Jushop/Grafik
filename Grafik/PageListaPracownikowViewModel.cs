@@ -11,7 +11,7 @@ namespace Grafik
 
         public ListaPracownikow ListaPracownikow
         {
-            get; set;
+            get { return CzytajXML.ReadLP("listap.xml"); } set { }
         }
         public PageListaPracownikowViewModel() {
             PobierzListe();

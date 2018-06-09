@@ -8,10 +8,19 @@ namespace Grafik
 {
     public class PageListaZajecViewModel
     {
-        public List<string> lista { get; set; }
+        public ListaZajec ListaZajec
+        {
+            get { return CzytajXML.ReadLZ("listazajec.xml"); }
+            set { }
+        }
+        public PageListaZajecViewModel()
+        {
+            PobierzListe();
+        }
 
-        public PageListaZajecViewModel() {
-
+        public void PobierzListe()
+        {
+            ListaZajec = CzytajXML.ReadLZ("listazajec.xml");
         }
     }
 }

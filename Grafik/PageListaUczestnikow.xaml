@@ -8,7 +8,17 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="PageListaUczestnikow">
 
+    <Page.DataContext>
+        <local:PageListaUczestnikowViewModel/>
+    </Page.DataContext>
     <Grid>
-        
+        <DataGrid ItemsSource="{Binding ListaUzytkownikow}" x:Name="dataGridUzytkownicy" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.083,0.385">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Imię" Binding="{Binding Path=imie}"/>
+                <DataGridTextColumn  Header="Nazwisko" Binding="{Binding Path=nazwisko}"/>
+                <DataGridTextColumn Header="Data przyjęcia" Binding="{Binding Path=dataPrzystapienia}"/>
+                <DataGridTextColumn Header="Ilość zajęć" Binding="{Binding Path=iloscZajec}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
