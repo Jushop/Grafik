@@ -24,11 +24,18 @@ namespace Grafik
             this.etaty = 5;
             
         }
-        public Pracownik(String imie, String nazwisko, int pesel, int placa) : base(imie, nazwisko, pesel) {
+        
+        public Pracownik(String imie, String nazwisko, int pesel, int placa, int id) : base(imie, nazwisko, pesel, id)
+        {
             this.placa = placa;
             this.dataZatrudnienia = DateTime.Today;
             this.etaty = 5;
         }
-
+        public Pracownik(String imie, String nazwisko, int pesel, int placa) : base(imie, nazwisko, pesel)
+        {
+            this.placa = placa;
+            this.dataZatrudnienia = DateTime.Today;
+            this.etaty = 5;
+        }
     }
 }

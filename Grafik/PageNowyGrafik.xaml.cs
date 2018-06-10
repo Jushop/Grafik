@@ -20,18 +20,25 @@ namespace Grafik
     /// </summary>
     public partial class PageNowyGrafik : Page
     {
+        // ListaZajec ListaZajeca = CzytajXML.ReadLZ("listazajec.xml");
+        
+        
         public PageNowyGrafik()
         {
-           ListaZajec ListaZajec = CzytajXML.ReadLZ("listazajec.xml");
-            ListaPracownikow listaPracownikow = CzytajXML.ReadLP("listap.xml");
+         
             InitializeComponent();
-            listBox.ItemsSource = ListaZajec;
-            listBox1.ItemsSource = listaPracownikow;
+           // Console.WriteLine("jeden");
+           // PageNowyGrafikViewModel vm = new PageNowyGrafikViewModel();
+           // Console.WriteLine("dwa");
+
+
+
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void button_Click2(object sender, RoutedEventArgs e)
         {
-
+            
+          
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Grafik
             this.iloscZajec = 0;
             this.dataPrzystapienia = DateTime.Today;
         }
-        public Uczestnik(String imie, String nazwisko, int pesel) : base(imie, nazwisko, pesel) {
+        public Uczestnik(String imie, String nazwisko, int pesel, int id) : base(imie, nazwisko, pesel, id) {
             this.iloscZajec = 0;
             this.dataPrzystapienia = new DateTime();
         }

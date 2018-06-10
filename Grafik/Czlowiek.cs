@@ -30,23 +30,37 @@ namespace Grafik
             get;
             set;
         }
-        public int personID { get;  }
-        private static int liczbaID = 0;
-       
+        
+        [XmlAttribute("id")]
+        public int personID { get; set; }
+
+        public static int liczbaID;
+     
         public Czlowiek() {
             this.imie = "Justyna";
             this.nazwisko = "Hoppe";
             this.Pesel = 940225031;
-            this.personID = liczbaID;
-            liczbaID += 1;
+            this.personID = -1;
         }
 
-        public Czlowiek(String imie, String nazwisko, int pesel) {
+        public Czlowiek(String imie, String nazwisko, int pesel, int id) {
             this.imie = imie;
             this.nazwisko = nazwisko;
             this.Pesel = pesel;
-            this.personID = liczbaID;
-            liczbaID += 1;
+            this.personID = id;
+            
         }
+        //gdy nie ma id przypisanego
+        public Czlowiek(String imie, String nazwisko, int pesel)
+        {
+            this.imie = imie;
+            this.nazwisko = nazwisko;
+            this.Pesel = pesel;
+            this.personID = liczbaID+1;
+            liczbaID += 1;
+
+        }
+
     }
 }
+

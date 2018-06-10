@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Controls.Primitives;
+using Prism.Commands;
 using System.Windows;
 using System.Collections.ObjectModel;
 
@@ -38,7 +38,7 @@ namespace Grafik
         }
         public PageNowyPracownikViewModel()
         {
-          //  MyButtonCommand2 = new DelegateCommand(DodajPracownika);
+           MyButtonCommand2 = new DelegateCommand(DodajPracownika);
         }
     }
 }

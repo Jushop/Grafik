@@ -7,12 +7,36 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="PageNowyGrafik">
-
+    <Page.DataContext>
+        <local:PageNowyGrafikViewModel/>
+    </Page.DataContext>
     <Grid>
-        <ListBox x:Name="listBox"   HorizontalAlignment="Left" Height="100" Margin="25,30,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListView x:Name="listBox"  ItemsSource="{Binding listaZajec}" SelectedItem="{Binding SelectedZajecia}"  HorizontalAlignment="Left" Height="100" Margin="40,30,0,0" VerticalAlignment="Top" Width="200">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridView.Columns >
+                        <GridViewColumn Header="Nazwa zajęć" Width="60" DisplayMemberBinding="{Binding Path=nazwaZajec}"></GridViewColumn>
+                        <GridViewColumn Header="Limit osób"  Width="60" DisplayMemberBinding="{Binding Path=limitOsob}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
-        <ListBox x:Name="listBox1"  HorizontalAlignment="Left" Height="100" Margin="25,150,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="button" Click="button_Click" Content="Button" HorizontalAlignment="Left" Margin="170,230,0,0" VerticalAlignment="Top" Width="85" Height="30"/>
+        <ListView x:Name="listView2" ItemsSource="{Binding listaPracownikow}" SelectedItem="{Binding SelectedPracownik}"    HorizontalAlignment="Left" Height="100" Margin="40,140,0,0" VerticalAlignment="Top" Width="200">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridView.Columns >
+                        <GridViewColumn Header="Imie" Width="60" DisplayMemberBinding="{Binding Path=imie}"></GridViewColumn>
+                        <GridViewColumn Header="Nazwisko"  Width="60" DisplayMemberBinding="{Binding Path=nazwisko}"></GridViewColumn>
+                        <GridViewColumn Header="Dostępność"  Width="60" DisplayMemberBinding="{Binding Path=etaty}"></GridViewColumn>
+                        <GridViewColumn Header="id"  Width="60" DisplayMemberBinding="{Binding Path=personID}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
 
+        </ListView>
+        <Button x:Name="button" Command="{Binding DodajGrafikCommand}" Content="Button" HorizontalAlignment="Left" Margin="95,260,0,0" VerticalAlignment="Top" Width="85" Height="30"/>
+       
+         
     </Grid>
 </Page>

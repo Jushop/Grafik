@@ -53,7 +53,9 @@ namespace Grafik
 
         private void UstalGrafik(object sender, RoutedEventArgs e)
         {
+           
             PageNowyGrafik pageNowyGrafik = new PageNowyGrafik();
+           
             framePlace.Navigate(pageNowyGrafik);
         }
 

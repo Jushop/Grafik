@@ -23,7 +23,7 @@ namespace Grafik
         public PageNowyPracownik()
         {
             InitializeComponent();
-            PageNowyPracownikViewModel vm = new PageNowyPracownikViewModel();
+           // PageNowyPracownikViewModel vm = new PageNowyPracownikViewModel();
         }
     }
 }

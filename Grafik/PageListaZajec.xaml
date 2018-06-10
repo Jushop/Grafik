@@ -12,7 +12,7 @@
         <local:PageListaZajecViewModel/>
     </Page.DataContext>
     <Grid>
-        <DataGrid ItemsSource="{Binding ListaZajec}" x:Name="dataGridZajecia" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.083,0.385">
+        <DataGrid ItemsSource="{Binding ListaZajecp}" x:Name="dataGridZajecia" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.083,0.385">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nazwa zajęć" Binding="{Binding Path=nazwaZajec}"/>
                 <DataGridTextColumn  Header="Ilość miejsc" Binding="{Binding Path=limitOsob}"/>

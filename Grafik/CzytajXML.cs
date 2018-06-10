@@ -22,17 +22,32 @@ namespace Grafik
             serializer.Serialize(writer, lista);
             writer.Close();
         }
+        public static void Zapiszgrafik( Grafik lista)
+        {
+            ListaGrafik lz = ReadLG("grafik.xml");
+            lz.Add(lista);
+            XmlSerializer serializer3 = new XmlSerializer(typeof(ListaGrafik));
+            TextWriter writer3 = new StreamWriter("grafik.xml");
+            serializer3.Serialize(writer3, lz);
+            writer3.Close();
+
+        }
+        public static void ZmniejszEtat(int id) {
+          
+        }
         [STAThread]
         public void CreatePO(string filename1, string filename2, string filename3, string filename4)
         {
             // Creates an instance of the XmlSerializer class;  
             // specifies the type of object to serialize.  
             //dodajemy 3 pracownikow
-            // Person.Start(0);
+             //Czlowiek.Start(0);
+            
             ListaPracownikow lp = new ListaPracownikow();
             for (int i = 0; i < 3; i++)
-            {
-                Pracownik p = new Pracownik("Basia" + i, "Nowak", 942666454, 1000 * i);
+            { 
+                Pracownik p = new Pracownik("Basia" + i, "Nowak", 942666454, 1000 * i, i);
+               
                 //lp.listaPracownikow.Add(p);
                 lp.Add(p);
             }
@@ -41,12 +56,13 @@ namespace Grafik
             XmlSerializer serializer = new XmlSerializer(typeof(ListaPracownikow));
             TextWriter writer = new StreamWriter(filename1);
             serializer.Serialize(writer, lp);
+           
             writer.Close();
             //dodajemy 3 uzytkonikow
             ListaUzytkownikow lu = new ListaUzytkownikow();
-            for (int i = 0; i < 3; i++)
+            for (int i = 3; i <6; i++)
             {
-                Uczestnik u = new Uczestnik("Ela" + i, "Bocian", 123 * i);
+                Uczestnik u = new Uczestnik("Ela" + i, "Bocian", 123 * i, i);
                 lu.Add(u);
             }
             XmlSerializer serializer2 = new XmlSerializer(typeof(ListaUzytkownikow));
@@ -135,10 +151,10 @@ namespace Grafik
 
 
         }
-
+        public static int maxID = 0;
         public static ListaPracownikow ReadLP(String filename)
         {
-
+           // Czlowiek.Start(0);
             //Lista pracownikow
             XmlSerializer serializer1 = new XmlSerializer(typeof(ListaPracownikow));
             serializer1.UnknownNode += new XmlNodeEventHandler(serializer_UnknownNode);
@@ -148,7 +164,14 @@ namespace Grafik
             // Declares an object variable of the type to be deserialized.  
             ListaPracownikow aktualnalp;
 
-            aktualnalp = (ListaPracownikow)serializer1.Deserialize(fslp);
+            aktualnalp = ((ListaPracownikow)serializer1.Deserialize(fslp));
+            foreach(var lp in aktualnalp)
+            {
+                if (lp.personID >= Czlowiek.liczbaID)
+                {
+                    Czlowiek.liczbaID = lp.personID;
+                }
+            }
             fslp.Close();
             return aktualnalp;
 
@@ -168,13 +191,21 @@ namespace Grafik
 
             aktualnalu = (ListaUzytkownikow)serializer1.Deserialize(fslp);
             fslp.Close();
+            foreach (var lp in aktualnalu)
+            {
+                if (lp.personID >= Czlowiek.liczbaID)
+                {
+                    Czlowiek.liczbaID = lp.personID;
+                }
+            }
             return aktualnalu;
 
         }
+
         public static ListaZajec ReadLZ(String filename)
         {
-
-            //Lista pracownikow
+            
+            //Lista zajec
             XmlSerializer serializer1 = new XmlSerializer(typeof(ListaZajec));
             serializer1.UnknownNode += new XmlNodeEventHandler(serializer_UnknownNode);
             serializer1.UnknownAttribute += new XmlAttributeEventHandler(serializer_UnknownAttribute);
@@ -186,6 +217,23 @@ namespace Grafik
             aktualnalz = (ListaZajec)serializer1.Deserialize(fslp);
             fslp.Close();
             return aktualnalz;
+
+        }
+        public static ListaGrafik ReadLG(String filename)
+        {
+
+            //Lista zajec
+            XmlSerializer serializer1 = new XmlSerializer(typeof(ListaGrafik));
+            serializer1.UnknownNode += new XmlNodeEventHandler(serializer_UnknownNode);
+            serializer1.UnknownAttribute += new XmlAttributeEventHandler(serializer_UnknownAttribute);
+
+            FileStream fslp = new FileStream(filename, FileMode.Open);
+            // Declares an object variable of the type to be deserialized.  
+            ListaGrafik aktualnalg;
+
+            aktualnalg = (ListaGrafik)serializer1.Deserialize(fslp);
+            fslp.Close();
+            return aktualnalg;
 
         }
         protected static void serializer_UnknownNode
