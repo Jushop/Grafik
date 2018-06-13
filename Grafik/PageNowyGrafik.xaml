@@ -22,18 +22,17 @@
             </ListView.View>
         </ListView>
 
-        <ListView x:Name="listView2" ItemsSource="{Binding listaPracownikow}" SelectedItem="{Binding SelectedPracownik}"    HorizontalAlignment="Left" Height="100" Margin="40,140,0,0" VerticalAlignment="Top" Width="200">
+        <ListView x:Name="listView2" ItemsSource="{Binding listaPracownikow}"  SelectedItem="{Binding SelectedPracownik}"    HorizontalAlignment="Left" Height="100" Margin="40,140,0,0" VerticalAlignment="Top" Width="200">
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
                     <GridView.Columns >
                         <GridViewColumn Header="Imie" Width="60" DisplayMemberBinding="{Binding Path=imie}"></GridViewColumn>
-                        <GridViewColumn Header="Nazwisko"  Width="60" DisplayMemberBinding="{Binding Path=nazwisko}"></GridViewColumn>
+                        <GridViewColumn Header="Nazwisko"  Width="60" DisplayMemberBinding="{Binding Path=placa}"></GridViewColumn>
                         <GridViewColumn Header="Dostępność"  Width="60" DisplayMemberBinding="{Binding Path=etaty}"></GridViewColumn>
                         <GridViewColumn Header="id"  Width="60" DisplayMemberBinding="{Binding Path=personID}"></GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
-
         </ListView>
         <Button x:Name="button" Command="{Binding DodajGrafikCommand}" Content="Button" HorizontalAlignment="Left" Margin="95,260,0,0" VerticalAlignment="Top" Width="85" Height="30"/>
        

@@ -11,8 +11,8 @@ namespace Grafik
         public static void Main1()
         {
             // Read and write purchase orders.  
-            CzytajXML t = new CzytajXML();
-            t.CreatePO("listap.xml", "listau.xml", "grafik.xml", "listazajec.xml");
+            //CzytajXML t = new CzytajXML();
+           // t.CreatePO("listap.xml", "listau.xml", "grafik.xml", "listazajec.xml");
             // t.ReadPO("listap.xml","listau.xml","grafik.xml");
         }
         public static void ZapiszDane(string filename, ListaPracownikow lista)
@@ -59,16 +59,7 @@ namespace Grafik
            
             writer.Close();
             //dodajemy 3 uzytkonikow
-            ListaUzytkownikow lu = new ListaUzytkownikow();
-            for (int i = 3; i <6; i++)
-            {
-                Uczestnik u = new Uczestnik("Ela" + i, "Bocian", 123 * i, i);
-                lu.Add(u);
-            }
-            XmlSerializer serializer2 = new XmlSerializer(typeof(ListaUzytkownikow));
-            TextWriter writer2 = new StreamWriter(filename2);
-            serializer2.Serialize(writer2, lu);
-            writer2.Close();
+           
 
             Zajecia zajecia1 = new Zajecia(20, "Zumba");
             Zajecia zajecia2 = new Zajecia(10, "Salsa");
@@ -85,6 +76,14 @@ namespace Grafik
             // Sets ShipTo and BillTo to the same addressee.  
             writer4.Close();
 
+            ListaUzytkownikow lu = new ListaUzytkownikow();
+            for (int i = 3; i < 6; i++)
+            {
+                Uczestnik u = new Uczestnik("Ela" + i, "Bocian", 123 * i, i);
+                lu.Add(u);
+            }
+           
+
             XmlSerializer serializer3 = new XmlSerializer(typeof(ListaGrafik));
             TextWriter writer3 = new StreamWriter(filename3);
             // Grafik po = new Grafik(pracownik1, zajecia1, DateTime.Today);
@@ -92,6 +91,7 @@ namespace Grafik
             g1.DodajUczesnika(lu[1]);
             Grafik g2 = new Grafik(lp[2].personID, 1, DateTime.Today);
             g2.DodajUczesnika(lu[2]);
+            g2.DodajUczesnika(lu[1]);
 
 
             ListaGrafik grafik = new ListaGrafik();
@@ -102,6 +102,11 @@ namespace Grafik
 
             serializer3.Serialize(writer3, grafik);
             writer3.Close();
+
+            XmlSerializer serializer2 = new XmlSerializer(typeof(ListaUzytkownikow));
+            TextWriter writer2 = new StreamWriter(filename2);
+            serializer2.Serialize(writer2, lu);
+            writer2.Close();
 
 
         }
@@ -169,6 +174,7 @@ namespace Grafik
             {
                 if (lp.personID >= Czlowiek.liczbaID)
                 {
+                    Console.WriteLine("Lista uzytkownikow" + lp.personID + " " + maxID);
                     Czlowiek.liczbaID = lp.personID;
                 }
             }
@@ -190,14 +196,20 @@ namespace Grafik
             ListaUzytkownikow aktualnalu;
 
             aktualnalu = (ListaUzytkownikow)serializer1.Deserialize(fslp);
-            fslp.Close();
+
+            
             foreach (var lp in aktualnalu)
             {
+                Console.WriteLine("ip"+lp.personID);
+                Console.WriteLine("liczbid" + Czlowiek.liczbaID);
                 if (lp.personID >= Czlowiek.liczbaID)
                 {
+                   
                     Czlowiek.liczbaID = lp.personID;
                 }
+               Console.WriteLine(Czlowiek.liczbaID);
             }
+            fslp.Close();
             return aktualnalu;
 
         }

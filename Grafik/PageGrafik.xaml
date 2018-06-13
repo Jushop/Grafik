@@ -7,8 +7,58 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="PageGrafik">
+    <Page.DataContext>
+        <local:PageGrafikViewModel/>
+    </Page.DataContext>
+    <Grid Margin="0,-25,10,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-    <Grid>
-        
+        <ListBox x:Name="comboBox" ItemsSource="{Binding listaGrafik}" SelectedItem="{Binding selectedGrafik}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="290" Height="135" Grid.ColumnSpan="2">
+            <ListBox.ItemTemplate  >
+                <DataTemplate >
+                    <StackPanel>
+                        <WrapPanel >
+
+                            <TextBlock Text="{Binding Path=zajeciaID}" />
+                            <TextBlock Text="{Binding Path=dataZajec}"/>
+
+                        </WrapPanel>
+
+                        <ListView ItemsSource="{Binding Path=uczestnicyID}" >
+                            <ListView.View>
+                                <GridView >
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Imię" DisplayMemberBinding="{Binding Path=imie}" ></GridViewColumn>
+                                        <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding Path=nazwisko}"></GridViewColumn>
+                                        <GridViewColumn Header="Pesel" DisplayMemberBinding="{Binding Path=Pesel}"></GridViewColumn>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListView ItemsSource="{Binding Path=listaUczestnikow}" SelectedItem="{Binding selectedUczestnik}"  Margin="0,155,10,25" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Imię" DisplayMemberBinding="{Binding Path=imie}"></GridViewColumn>
+                        <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding Path=nazwisko}"></GridViewColumn>
+                        <GridViewColumn Header="Pesel" DisplayMemberBinding="{Binding Path=Pesel}"></GridViewColumn>
+                        <GridViewColumn>
+                            <ItemContainerTemplate>
+                                <Button/>
+                            </ItemContainerTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="buttonDodaj" Command="{Binding DodajUczestnikowCommand}" Margin="80,300,10,0" Grid.ColumnSpan="2">Dodaj uczestnika</Button>
     </Grid>
 </Page>

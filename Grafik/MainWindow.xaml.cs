@@ -23,7 +23,7 @@ namespace Grafik
         public MainWindow()
         {
             InitializeComponent();
-            CzytajXML t = new CzytajXML();
+           CzytajXML t = new CzytajXML();
             t.CreatePO("listap.xml", "listau.xml", "grafik.xml", "listazajec.xml");
 
         }

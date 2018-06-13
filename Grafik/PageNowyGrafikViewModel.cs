@@ -1,35 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Commands;
 using System.Windows;
-using System.Collections.ObjectModel;
+using System.ComponentModel;
+
+
 namespace Grafik
 {
-    public class PageNowyGrafikViewModel
+    public class PageNowyGrafikViewModel 
     {
         public ListaZajec listaZajec
         {
             get { return CzytajXML.ReadLZ("listazajec.xml"); }
             set { }
         }
+        private ListaPracownikow _listaPracownikow;
         public ListaPracownikow listaPracownikow
         {
-            get;
-            set;
+            get
+            {
+                return _listaPracownikow;
+            }
+            set
+            {
+                _listaPracownikow = value;
+              //  spr("listaPracownikow");
+            }
         }
+     /*   public void spr(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        } */
         public Zajecia SelectedZajecia { get; set; }
         public Pracownik SelectedPracownik { get; set; }
-
+      //  public event PropertyChangedEventHandler PropertyChanged;
+       
 
         private void DodajGrafik()
         {
-            Grafik noweZajecie = new Grafik(SelectedPracownik.personID, SelectedZajecia.zajeciaId, DateTime.Today);
-            CzytajXML.Zapiszgrafik(noweZajecie);
-            CzytajXML.ZmniejszEtat(SelectedPracownik.personID);
+           // Grafik noweZajecie = new Grafik(SelectedPracownik, SelectedZajecia.zajeciaId, DateTime.Today);
+           // CzytajXML.Zapiszgrafik(noweZajecie);
+            //Zmniejsz etat pracownika
+            listaPracownikow.Add(new Pracownik());
+            listaPracownikow.Where(p => p == SelectedPracownik).Single().placa = 30;
+            CzytajXML.ZapiszDane("listap.xml", listaPracownikow);
+           
+          //  Zapisz zmiany do pliku xml
+
             MessageBox.Show(SelectedZajecia.zajeciaId.ToString());
         }
 
@@ -46,7 +68,7 @@ namespace Grafik
         public void PobierzListe()
         {
             listaZajec = CzytajXML.ReadLZ("listazajec.xml");
-            listaPracownikow = CzytajXML.ReadLP("listap.xml");
+            _listaPracownikow = CzytajXML.ReadLP("listap.xml");
             
             Console.WriteLine(listaPracownikow.Count());
             foreach(var lp in listaPracownikow)

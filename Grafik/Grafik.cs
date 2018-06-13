@@ -35,28 +35,31 @@ namespace Grafik
             set;
         }
         [XmlArrayItem("idUczestnika")]
-        public List<int> uczestnicyID { get;  set; }
+        public ListaUzytkownikow uczestnicyID { get;  set; }
 
         public Grafik() {
             this.dataZajec = DateTime.Today;
             this.instruktorID = -1;
             this.zajeciaID = -1;
             this.iloscZarezerwowanych = 0;
-            this.uczestnicyID = new List<int>();
+            this.uczestnicyID = new ListaUzytkownikow();
         }
         public Grafik(int pracownikID, int zajecia, DateTime dataZajec) {
             this.instruktorID = pracownikID;
             this.dataZajec = dataZajec;
             this.zajeciaID = zajecia;
             this.iloscZarezerwowanych = 0;
-            this.uczestnicyID = new List<int>();
+            this.uczestnicyID = new ListaUzytkownikow();
         }
         public bool DodajUczesnika(Uczestnik uczestnik)
         {
             if (uczestnik.iloscZajec > 0)
             {
+                Console.WriteLine(uczestnik.iloscZajec);
                 this.iloscZarezerwowanych += 1;
-                this.uczestnicyID.Add(uczestnik.personID);
+                this.uczestnicyID.Add(uczestnik);
+               uczestnik.iloscZajec = 10;
+                Console.WriteLine(uczestnik.iloscZajec);
                 return true;
             } else
             {

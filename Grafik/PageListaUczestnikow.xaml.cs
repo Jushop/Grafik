@@ -23,7 +23,7 @@ namespace Grafik
         public PageListaUczestnikow()
         {
             InitializeComponent();
-            PageListaUczestnikowViewModel vm = new PageListaUczestnikowViewModel();
+           // PageListaUczestnikowViewModel vm = new PageListaUczestnikowViewModel();
         }
     }
 }

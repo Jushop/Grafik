@@ -17,6 +17,7 @@
                 <DataGridTextColumn  Header="Nazwisko" Binding="{Binding Path=nazwisko}"/>
                 <DataGridTextColumn Header="Płaca" Binding="{Binding Path=placa}"/>
                 <DataGridTextColumn Header="Data zatrudnienia" Binding="{Binding Path=dataZatrudnienia}"/>
+                <DataGridTextColumn Header="Wolne etaty" Binding="{Binding Path=etaty}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

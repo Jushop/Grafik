@@ -9,9 +9,7 @@ namespace Grafik
     public class PageListaUczestnikowViewModel
     {
         public ListaUzytkownikow ListaUzytkownikow
-        {
-            get { return CzytajXML.ReadLU("listau.xml"); }
-            set { }
+        { get; set;
         }
         public PageListaUczestnikowViewModel()
         {
@@ -20,7 +18,9 @@ namespace Grafik
 
         public void PobierzListe()
         {
+            Console.WriteLine("Wczytuje");
             ListaUzytkownikow = CzytajXML.ReadLU("listau.xml");
+            Console.WriteLine(CzytajXML.maxID + "  " );
         }
     }
 }

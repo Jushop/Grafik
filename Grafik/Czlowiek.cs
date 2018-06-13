@@ -34,13 +34,15 @@ namespace Grafik
         [XmlAttribute("id")]
         public int personID { get; set; }
 
-        public static int liczbaID;
+        public static int liczbaID ;
      
         public Czlowiek() {
             this.imie = "Justyna";
             this.nazwisko = "Hoppe";
             this.Pesel = 940225031;
-            this.personID = -1;
+            this.personID = liczbaID;
+            
+            Console.WriteLine("może to");
         }
 
         public Czlowiek(String imie, String nazwisko, int pesel, int id) {
@@ -48,7 +50,8 @@ namespace Grafik
             this.nazwisko = nazwisko;
             this.Pesel = pesel;
             this.personID = id;
-            
+            Console.WriteLine("KOnstruktor");
+
         }
         //gdy nie ma id przypisanego
         public Czlowiek(String imie, String nazwisko, int pesel)
@@ -58,7 +61,7 @@ namespace Grafik
             this.Pesel = pesel;
             this.personID = liczbaID+1;
             liczbaID += 1;
-
+            Console.WriteLine("inny Konstruktor");
         }
 
     }

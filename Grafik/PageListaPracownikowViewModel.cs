@@ -20,6 +20,7 @@ namespace Grafik
         public void PobierzListe()
         {
             ListaPracownikow = CzytajXML.ReadLP("listap.xml");
+            Console.WriteLine(CzytajXML.maxID);
         }
     }
 }
