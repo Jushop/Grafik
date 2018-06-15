@@ -70,5 +70,11 @@ namespace Grafik
             PageListaUczestnikow pageListaUzytkownikow = new PageListaUczestnikow();
             framePlace.Navigate(pageListaUzytkownikow);
         }
+
+        private void DodajUzytkownika(object sender, RoutedEventArgs e)
+        {
+            PageNowyUzytkownik pageNowyUzytkownik = new PageNowyUzytkownik();
+            framePlace.Navigate(pageNowyUzytkownik);
+        }
     }
 }

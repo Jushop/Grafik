@@ -96,6 +96,10 @@
     </ApplicationDefinition>
     <Compile Include="Czlowiek.cs" />
     <Compile Include="Grafik.cs" />
+    <Compile Include="PageNowyUzytkownikViewModel.cs" />
+    <Compile Include="PageNowyUzytkownik.xaml.cs">
+      <DependentUpon>PageNowyUzytkownik.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pracownik.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Uczestnik.cs" />
@@ -123,6 +127,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PageListaZajec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageNowyUzytkownik.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

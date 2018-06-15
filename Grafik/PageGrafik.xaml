@@ -10,23 +10,23 @@
     <Page.DataContext>
         <local:PageGrafikViewModel/>
     </Page.DataContext>
+    <Page.Resources>
+        <local:PageGrafikViewModel x:Key="grafik"/>
+    </Page.Resources>
     <Grid Margin="0,-25,10,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="comboBox" ItemsSource="{Binding listaGrafik}" SelectedItem="{Binding selectedGrafik}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="290" Height="135" Grid.ColumnSpan="2">
-            <ListBox.ItemTemplate  >
-                <DataTemplate >
+        <ListBox x:Name="comboBox" ItemsSource="{Binding listaGrafik}" SelectedItem="{Binding selectedGrafik}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="290" Height="145" Grid.ColumnSpan="2" Margin="0,10,0,0">
+            <ListBox.ItemTemplate >
+                <DataTemplate>
                     <StackPanel>
-                        <WrapPanel >
-
+                        <WrapPanel>
                             <TextBlock Text="{Binding Path=zajeciaID}" />
                             <TextBlock Text="{Binding Path=dataZajec}"/>
-
                         </WrapPanel>
-
                         <ListView ItemsSource="{Binding Path=uczestnicyID}" >
                             <ListView.View>
                                 <GridView >
@@ -47,14 +47,10 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Imię" DisplayMemberBinding="{Binding Path=imie}"></GridViewColumn>
-                        <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding Path=nazwisko}"></GridViewColumn>
-                        <GridViewColumn Header="Pesel" DisplayMemberBinding="{Binding Path=Pesel}"></GridViewColumn>
-                        <GridViewColumn>
-                            <ItemContainerTemplate>
-                                <Button/>
-                            </ItemContainerTemplate>
-                        </GridViewColumn>
+                        <GridViewColumn Width="60" Header="Imię" DisplayMemberBinding="{Binding Path=imie}"></GridViewColumn>
+                        <GridViewColumn Width="60" Header="Nazwisko" DisplayMemberBinding="{Binding Path=nazwisko}"></GridViewColumn>
+                        <GridViewColumn Width="60" Header="Pesel" DisplayMemberBinding="{Binding Path=Pesel}"></GridViewColumn>
+
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

@@ -68,8 +68,11 @@ namespace Grafik
         }
         public void DodajUczestnikowdoGrafiku() {
             Console.WriteLine("mmm");
-            listaGrafik.Where(g => g == selectedGrafik).Single().uczestnicyID.Add(selectedUczestnik);
-            listaUczestnikow.Remove(selectedUczestnik);
+            //listaGrafik.Where(g => g == selectedGrafik).Single().uczestnicyID.Add(selectedUczestnik);
+            //listaUczestnikow.Remove(selectedUczestnik);
+           // CzytajXML.Zapiszgrafik2(listaGrafik);
+           // CzytajXML.ZapiszUczestnikow(listaUczestnikow);
+
         }
 
 

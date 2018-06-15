@@ -12,12 +12,30 @@
         <local:PageListaZajecViewModel/>
     </Page.DataContext>
     <Grid>
-        <DataGrid ItemsSource="{Binding ListaZajecp}" x:Name="dataGridZajecia" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.083,0.385">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" ItemsSource="{Binding ListaZajecp}" Width="200" x:Name="dataGridZajecia" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.083,0.385">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nazwa zajęć" Binding="{Binding Path=nazwaZajec}"/>
-                <DataGridTextColumn  Header="Ilość miejsc" Binding="{Binding Path=limitOsob}"/>
-              
+                <DataGridTextColumn Width="1*" Header="Nazwa zajęć" Binding="{Binding Path=nazwaZajec}"/>
+                <DataGridTextColumn Width="1*" Header="Ilość miejsc" Binding="{Binding Path=limitOsob}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <WrapPanel  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label x:Name="label" Content="Nazwa zajęć"  Height="25" Width="80"/>
+            <TextBox x:Name="textBox2" Text="{Binding NazwaZajec}" Height="23"  TextWrapping="Wrap"  Width="120"/>
+        </WrapPanel>
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label x:Name="label2" Content="Limit osób"  Height="25" Width="80"/>
+            <TextBox x:Name="textBox" Text="{Binding LimitZajec}" Height="23"  TextWrapping="Wrap" Width="120"/>
+        </WrapPanel>
+        <Button Grid.Row="3" x:Name="button" Content="Dodaj" Command="{Binding DodajCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75"/>
+
     </Grid>
 </Page>

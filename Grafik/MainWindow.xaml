@@ -17,8 +17,10 @@
             <Button Height="40" Click="ZobaczPracownikow">Zobacz pracownikow</Button>
             <Button Height="40" Click="ZobaczUzytkownikow">Zobacz uzytkownikow</Button>
             <Button Height="40" Click="DodajPracownika">Dodaj pracownika</Button>
+            <Button Height="40" Click="DodajUzytkownika">Dodaj użytkownika</Button>
             <Button Height="40" Click="UstalGrafik">Ustal grafik</Button>
             <Button Height="40" Click="DodajZajecia">Dodaj zajecia</Button>
+           
         </StackPanel>
         <Frame Grid.Column="1" Name="framePlace" NavigationUIVisibility="Hidden"></Frame>
     </Grid>

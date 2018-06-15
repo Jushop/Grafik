@@ -11,7 +11,7 @@
         <local:PageListaPracownikowViewModel/>
     </Page.DataContext>
   <Grid>
-        <DataGrid ItemsSource="{Binding ListaPracownikow}" x:Name="dataGridPracownicy" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.083,0.385">
+        <DataGrid ItemsSource="{Binding ListaPracownikow}" x:Name="dataGridPracownicy" AutoGenerateColumns="False" HorizontalAlignment="Center"  VerticalAlignment="Top" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Imię" Binding="{Binding Path=imie}"/>
                 <DataGridTextColumn  Header="Nazwisko" Binding="{Binding Path=nazwisko}"/>

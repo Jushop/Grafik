@@ -44,8 +44,9 @@ namespace Grafik
             this.iloscZarezerwowanych = 0;
             this.uczestnicyID = new ListaUzytkownikow();
         }
-        public Grafik(int pracownikID, int zajecia, DateTime dataZajec) {
-            this.instruktorID = pracownikID;
+        public Grafik(Pracownik pracownikID, int zajecia, DateTime dataZajec) {
+            this.instruktorID = pracownikID.personID;
+            pracownikID.ZmniejszEtat();
             this.dataZajec = dataZajec;
             this.zajeciaID = zajecia;
             this.iloscZarezerwowanych = 0;
@@ -58,7 +59,7 @@ namespace Grafik
                 Console.WriteLine(uczestnik.iloscZajec);
                 this.iloscZarezerwowanych += 1;
                 this.uczestnicyID.Add(uczestnik);
-               uczestnik.iloscZajec = 10;
+                uczestnik.UaktualniKarnetPoZapisach();
                 Console.WriteLine(uczestnik.iloscZajec);
                 return true;
             } else

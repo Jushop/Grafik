@@ -11,7 +11,15 @@
         <local:PageNowyGrafikViewModel/>
     </Page.DataContext>
     <Grid>
-        <ListView x:Name="listBox"  ItemsSource="{Binding listaZajec}" SelectedItem="{Binding SelectedZajecia}"  HorizontalAlignment="Left" Height="100" Margin="40,30,0,0" VerticalAlignment="Top" Width="200">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0" x:Name="listBox"  ItemsSource="{Binding listaZajec}" SelectedItem="{Binding SelectedZajecia}"  HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" >
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
                     <GridView.Columns >
@@ -22,7 +30,7 @@
             </ListView.View>
         </ListView>
 
-        <ListView x:Name="listView2" ItemsSource="{Binding listaPracownikow}"  SelectedItem="{Binding SelectedPracownik}"    HorizontalAlignment="Left" Height="100" Margin="40,140,0,0" VerticalAlignment="Top" Width="200">
+        <ListView Grid.Row="1" x:Name="listView2" ItemsSource="{Binding listaPracownikow}"  SelectedItem="{Binding SelectedPracownik}"    HorizontalAlignment="Center" Height="100"  VerticalAlignment="Top" >
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
                     <GridView.Columns >
@@ -34,7 +42,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="button" Command="{Binding DodajGrafikCommand}" Content="Button" HorizontalAlignment="Left" Margin="95,260,0,0" VerticalAlignment="Top" Width="85" Height="30"/>
+        <Button Grid.Row="2" x:Name="button" Command="{Binding DodajGrafikCommand}" Content="Dodaj do grafiku" HorizontalAlignment="Center" VerticalAlignment="Top" Width="85" Height="30"/>
        
          
     </Grid>

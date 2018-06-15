@@ -18,12 +18,12 @@ namespace Grafik
     /// <summary>
     /// Interaction logic for PageGrafik.xaml
     /// </summary>
-    public partial class PageListaPracownikow : Page
+    public partial class PageNowyUzytkownik : Page
     {
-        public PageListaPracownikow()
+        public PageNowyUzytkownik()
         {
             InitializeComponent();
-      
+           // PageNowyPracownikViewModel vm = new PageNowyPracownikViewModel();
         }
     }
 }

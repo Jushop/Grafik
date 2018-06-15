@@ -48,5 +48,8 @@ namespace Grafik
             this.dataZatrudnienia = DateTime.Today;
             this.etaty = 5;
         }
+        public void ZmniejszEtat() {
+            this.etaty -= 1;
+        }
     }
 }

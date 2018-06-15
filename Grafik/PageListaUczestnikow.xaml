@@ -12,7 +12,15 @@
         <local:PageListaUczestnikowViewModel/>
     </Page.DataContext>
     <Grid>
-        <DataGrid ItemsSource="{Binding ListaUzytkownikow}" x:Name="dataGridUzytkownicy" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.083,0.385">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" ItemsSource="{Binding ListaUzytkownikow}" SelectedItem="{Binding SelectedUser}" x:Name="dataGridUzytkownicy" AutoGenerateColumns="False" HorizontalAlignment="Center"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Imię" Binding="{Binding Path=imie}"/>
                 <DataGridTextColumn  Header="Nazwisko" Binding="{Binding Path=nazwisko}"/>
@@ -20,5 +28,10 @@
                 <DataGridTextColumn Header="Ilość zajęć" Binding="{Binding Path=iloscZajec}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <WrapPanel Grid.Row="1">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" >Wprowadz ilość wykupionych zajęć</Label>
+            <TextBox x:Name="textBox"  HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="{Binding Path=Karnet}" VerticalAlignment="Center" Width="120"/>
+        </WrapPanel>
+        <Button Grid.Row="2" x:Name="button" Content="Zatwierdź" Command="{Binding EditCommand}" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="75"/>
     </Grid>
 </Page>

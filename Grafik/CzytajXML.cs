@@ -22,6 +22,13 @@ namespace Grafik
             serializer.Serialize(writer, lista);
             writer.Close();
         }
+        public static void ZapiszUczestnikow(ListaUzytkownikow lista)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(ListaUzytkownikow));
+            TextWriter writer = new StreamWriter("listau.xml");
+            serializer.Serialize(writer, lista);
+            writer.Close();
+        }
         public static void Zapiszgrafik( Grafik lista)
         {
             ListaGrafik lz = ReadLG("grafik.xml");
@@ -29,6 +36,24 @@ namespace Grafik
             XmlSerializer serializer3 = new XmlSerializer(typeof(ListaGrafik));
             TextWriter writer3 = new StreamWriter("grafik.xml");
             serializer3.Serialize(writer3, lz);
+            writer3.Close();
+
+        }
+        public static void Zapiszgrafik2(ListaGrafik lista)
+        {
+
+            XmlSerializer serializer3 = new XmlSerializer(typeof(ListaGrafik));
+            TextWriter writer3 = new StreamWriter("listazajec.xml");
+            serializer3.Serialize(writer3, lista);
+            writer3.Close();
+
+        }
+        public static void ZapiszZajecia(ListaZajec lista)
+        {
+            
+            XmlSerializer serializer3 = new XmlSerializer(typeof(ListaZajec));
+            TextWriter writer3 = new StreamWriter("listazajec.xml");
+            serializer3.Serialize(writer3, lista);
             writer3.Close();
 
         }
@@ -87,9 +112,9 @@ namespace Grafik
             XmlSerializer serializer3 = new XmlSerializer(typeof(ListaGrafik));
             TextWriter writer3 = new StreamWriter(filename3);
             // Grafik po = new Grafik(pracownik1, zajecia1, DateTime.Today);
-            Grafik g1 = new Grafik(lp[1].personID, 0, DateTime.Today);
+            Grafik g1 = new Grafik(lp[1], 0, DateTime.Today);
             g1.DodajUczesnika(lu[1]);
-            Grafik g2 = new Grafik(lp[2].personID, 1, DateTime.Today);
+            Grafik g2 = new Grafik(lp[2], 1, DateTime.Today);
             g2.DodajUczesnika(lu[2]);
             g2.DodajUczesnika(lu[1]);
 
